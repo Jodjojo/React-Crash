@@ -1,60 +1,21 @@
 function ListGroup() {
-	// Importing ListGroup Markup from the Bootstrap Documentation
+	const items = ["New York", "San Fransico", "Tokyo", "London", "Paris"];
+
 	return (
 		<>
 			<h1>List</h1>
-			<ul className="list-group">
-				<li className="list-group-item">An item</li>
-				<li className="list-group-item">A second item</li>
-				<li className="list-group-item">A third item</li>
-				<li className="list-group-item">A fourth item</li>
-				<li className="list-group-item">And a fifth one</li>
+			<ul className='list-group'>
+				{items.map((item) => (
+					<li key={item}>{item}</li>
+				))}
 			</ul>
 		</>
 	);
 }
 
-// In react a component cannot return more than one component...so we can return this listGroup and still return a header under this component
-// So we can Either use FRAGMENTS to solve this problem or wrap everything with a div
-// or use empty tags to tell react were using fragments
-////////////////////////////FRAGMENTS/////////////////////////
-/*
-import { Fragment } from "react";
+// For JSX we dont have a For loop so we use a different technique using MAP
+// In JSX we can only use HTML components or Other React components Normally
+//So we wrap what we want in parenthesis for the JSX to understand it
+// Each Item in our Mapped loop should have a unique Key Prop...which in most cases we use the ITEM ID as the uniwue key but for this we just use the item name
 
-function ListGroup() {
-	// Importing ListGroup Markup from the Bootstrap Documentation
-	return (
-		<Fragment>
-			<h1>List</h1>
-			<ul className="list-group">
-				<li className="list-group-item">An item</li>
-				<li className="list-group-item">A second item</li>
-				<li className="list-group-item">A third item</li>
-				<li className="list-group-item">A fourth item</li>
-				<li className="list-group-item">And a fifth one</li>
-			</ul>
-		</Fragment>
-	);
-}
-*/
-// Fragments allows us to solve this problem without creating an external DIV element in the DOM
-
-///////////////////////////////////////////////////////////////
-//////////////////////DIV//////////////////////////////////////
-/*
-function ListGroup() {
-	// Importing ListGroup Markup from the Bootstrap Documentation
-	return (
-		<div>
-			<h1>List</h1>
-			<ul className="list-group">
-				<li className="list-group-item">An item</li>
-				<li className="list-group-item">A second item</li>
-				<li className="list-group-item">A third item</li>
-				<li className="list-group-item">A fourth item</li>
-				<li className="list-group-item">And a fifth one</li>
-			</ul>
-		</div>
-	);
-*/
 export default ListGroup;
