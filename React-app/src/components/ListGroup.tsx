@@ -1,49 +1,28 @@
-import Message from "../Message";
+import { MouseEvent } from "react";
 
 function ListGroup() {
 	let items = ["New York", "San Fransico", "Tokyo", "London", "Paris"];
 
+	// EVENT HANDLER
+	// When we are declaring an event handler function outside of an onClick handler in react we have to define the type of function by calling the function type MouseEvent from React(TYPE ANNOTATION)
+	const handleClick = (event: MouseEvent) => console.log(event);
 	return (
 		<>
 			<h1>List</h1>
 			{items.length === 0 && <p>No Item Found</p>}
 
 			<ul className='list-group'>
-				{items.map((item) => (
-					<li key={item}>{item}</li>
+				{items.map((item, index) => (
+					<li className='list-group-item' key={item} onClick={handleClick}>
+						{item}
+					</li>
 				))}
 			</ul>
 		</>
 	);
 }
 
-// iF we want to do conditional rendering that is using the if/else statement we change the const variable declarere from const tro let or use Conditional Rendering using JSX expression
-// if (items.length === 0)
-// return (
-// 	<>
-// 		<h1>List</h1>
-// 		<p>No item Found</p>;
-// 	</>
-// );
-
-// CONDITIONAL OPERATOR
-/*
-	const GetMessage = () => (items.length === 0 ? <p>No Item Found</p> : null);
-	return (
-		<>
-			<h1>List</h1>
-			{GetMessage()}
-			<ul className='list-group'>
-				{items.map((item) => (
-					<li key={item}>{item}</li>
-				))}
-			</ul>
-		</>
-	);
-*/
-/* {items.length === 0 ? <p>No Item Found</p> : null} ---condtitional operator*/
-
-// LOGIGAL ADDING
-// So instead of using the conditional Operator and having to add null we usethe && operator so it only works when both are satisfied
+// In react each element has a property called onClick for handling events
+// When mapping items we can add a second parameter called an INDEX
 
 export default ListGroup;
