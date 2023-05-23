@@ -1,9 +1,13 @@
+import Message from "../Message";
+
 function ListGroup() {
-	const items = ["New York", "San Fransico", "Tokyo", "London", "Paris"];
+	let items = ["New York", "San Fransico", "Tokyo", "London", "Paris"];
 
 	return (
 		<>
 			<h1>List</h1>
+			{items.length === 0 && <p>No Item Found</p>}
+
 			<ul className='list-group'>
 				{items.map((item) => (
 					<li key={item}>{item}</li>
@@ -13,9 +17,33 @@ function ListGroup() {
 	);
 }
 
-// For JSX we dont have a For loop so we use a different technique using MAP
-// In JSX we can only use HTML components or Other React components Normally
-//So we wrap what we want in parenthesis for the JSX to understand it
-// Each Item in our Mapped loop should have a unique Key Prop...which in most cases we use the ITEM ID as the uniwue key but for this we just use the item name
+// iF we want to do conditional rendering that is using the if/else statement we change the const variable declarere from const tro let or use Conditional Rendering using JSX expression
+// if (items.length === 0)
+// return (
+// 	<>
+// 		<h1>List</h1>
+// 		<p>No item Found</p>;
+// 	</>
+// );
+
+// CONDITIONAL OPERATOR
+/*
+	const GetMessage = () => (items.length === 0 ? <p>No Item Found</p> : null);
+	return (
+		<>
+			<h1>List</h1>
+			{GetMessage()}
+			<ul className='list-group'>
+				{items.map((item) => (
+					<li key={item}>{item}</li>
+				))}
+			</ul>
+		</>
+	);
+*/
+/* {items.length === 0 ? <p>No Item Found</p> : null} ---condtitional operator*/
+
+// LOGIGAL ADDING
+// So instead of using the conditional Operator and having to add null we usethe && operator so it only works when both are satisfied
 
 export default ListGroup;
