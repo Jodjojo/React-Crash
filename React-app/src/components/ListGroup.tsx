@@ -1,19 +1,17 @@
 import { useState } from "react";
+// We will need to pass object  with two properties { items: [], heading: string}
+// we use the Interface typescript feature to define the shape or interface of an object
+interface Props {
+	items: string[];
+	heading: string;
+}
 
-function ListGroup() {
-	let items = ["New York", "San Fransico", "Tokyo", "London", "Paris"];
-
-	// let SelectedIndex = -1;
-	// Hook(useState) - function that allows us to tap into built in features in reacts...telling react that this component will have data or state that can chnage over time
+function ListGroup({ items, heading }: Props) {
 	const [SelectedIndex, SetSelectedIndex] = useState(-1);
-	// const arr = useState();
-	// The value (-1) in the useState is the value of the initial selector index then on each clickm the setSelectedIndex function is called using the index of the List clicked
-	// arr[0]; //Initial Variable(selectedIndex)
-	// arr[1]; //Updater function to update Dom
 
 	return (
 		<>
-			<h1>List</h1>
+			<h1>{heading}</h1>
 			{items.length === 0 && <p>No Item Found</p>}
 
 			<ul className='list-group'>
@@ -37,7 +35,7 @@ function ListGroup() {
 	);
 }
 
-// To Highlight a list item when clicked we have a bootstrap class called active
-// To Limit which item gets the active class on click we Manage the state by using a variable to keep track of the index of the selected item
-// so we use the conditional operator to decide if the variable index is equal to the selectedIndex variable we created
+// To make a component reusable we use PROPS OR PROPERTIES
+// Props are the inputs to our components
+// Instead og harcoding our listGroup we want to make it possible that we can pass various labels into the component
 export default ListGroup;

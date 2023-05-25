@@ -3,15 +3,14 @@ import ListGroup from "./components/ListGroup";
 
 // Now to use the imported component we use it just as a normal HTML component tag with opening and closing tag
 function App() {
+	let items = ["New York", "San Fransico", "Tokyo", "London", "Paris"];
+
 	return (
 		<div>
-			<ListGroup></ListGroup>
-			<ListGroup></ListGroup>
+			<ListGroup items={items} heading='Cities'></ListGroup>
 		</div>
 	);
 }
-
-// If we had 2 or more sitings of the same component like having 2 list groups, they would have their own individuals states and will be independent of each other
 
 // export the APP component
 export default App;
