@@ -5,9 +5,17 @@ import ListGroup from "./components/ListGroup";
 function App() {
 	let items = ["New York", "San Fransico", "Tokyo", "London", "Paris"];
 
+	const handleSelectItem = (item: string) => {
+		// what you want to be executed on select of the list item
+		console.log(item);
+	};
 	return (
 		<div>
-			<ListGroup items={items} heading='Cities'></ListGroup>
+			<ListGroup
+				items={items}
+				heading='Cities'
+				onSelectItem={handleSelectItem}
+			></ListGroup>
 		</div>
 	);
 }
