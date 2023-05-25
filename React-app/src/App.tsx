@@ -1,24 +1,15 @@
-// First you import your Component file
-import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
 
-// Now to use the imported component we use it just as a normal HTML component tag with opening and closing tag
 function App() {
-	let items = ["New York", "San Fransico", "Tokyo", "London", "Paris"];
-
-	const handleSelectItem = (item: string) => {
-		// what you want to be executed on select of the list item
-		console.log(item);
-	};
 	return (
 		<div>
-			<ListGroup
-				items={items}
-				heading='Cities'
-				onSelectItem={handleSelectItem}
-			></ListGroup>
+			<Alert>
+				Hello <span>World</span>
+			</Alert>
 		</div>
 	);
 }
 
-// export the APP component
+// So instead of passing text as a part of the alert header we can pass the text as a child of the HTML alert element
+//<Alert text='Hello World'></Alert> -- ijstead of this
 export default App;

@@ -40,7 +40,5 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
 	);
 }
 
-// To make a component reusable we use PROPS OR PROPERTIES
-// Props are the inputs to our components
-// Instead og harcoding our listGroup we want to make it possible that we can pass various labels into the component
+// To create a component that can accept children
 export default ListGroup;
